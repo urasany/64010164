@@ -1,6 +1,6 @@
 working_dir: &working_dir ~/app
 version: 2.1
-#####################################################################################################################################
+####################################################################################################################################
 description: |
   An orb for working with Amazon Elastic Container Service (ECS).
   Supports the EC2 and Fargate launch types
@@ -109,6 +109,7 @@ jobs:
           command: |
             ls
             docker run -e CI=true eganvawi/centos:latest
+ 
           
 
   
