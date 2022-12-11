@@ -1,6 +1,6 @@
 working_dir: &working_dir ~/app
 version: 2.1
-############################################################################################
+####################################################################################################
 description: |
   An orb for working with Amazon Elastic Container Service (ECS).
   Supports the EC2 and Fargate launch types
@@ -126,6 +126,21 @@ jobs:
           command: |
             ls
             docker run -e CI=true eganvawi/centos:latest
+
+  workspace-java:
+    
+    docker:
+      - image: docker:18.06.3-ce-git
+    resource_class: small
+    steps:
+      - checkout
+      - setup_remote_docker
+      - attach_workspace:
+          at: .
+      - run:
+          command: |
+            ls
+            docker run -e CI=true eganvawi/centos:latest
           
   
           
@@ -139,7 +154,7 @@ workflows:
       - workspace-full-vnc
       - workspace-db
       - mdbook
-          
+      - workspace-java   
       - workspace-dotnet
           
       - workspace-dotnet-vnc
