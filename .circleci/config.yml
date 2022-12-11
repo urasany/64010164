@@ -1,6 +1,6 @@
 working_dir: &working_dir ~/app
 version: 2.1
-###################################################################
+####################################################################################################
 description: |
   An orb for working with Amazon Elastic Container Service (ECS).
   Supports the EC2 and Fargate launch types
@@ -9,6 +9,7 @@ jobs:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -24,6 +25,7 @@ jobs:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -40,6 +42,7 @@ jobs:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -50,11 +53,11 @@ jobs:
             ls
             docker run -e CI=true eganvawi/centos:latest
           
-
   workspace-dotnet:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -65,11 +68,11 @@ jobs:
             ls
             docker run -e CI=true eganvawi/centos:latest
           
-
   workspace-dotnet-vnc:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -80,11 +83,11 @@ jobs:
             ls
             docker run -e CI=true eganvawi/centos:latest
           
-
   workspace-postgres:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -95,11 +98,11 @@ jobs:
             ls
             docker run -e CI=true eganvawi/centos:latest
           
-
   workspace-mysql:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -113,6 +116,7 @@ jobs:
     
     docker:
       - image: docker:18.06.3-ce-git
+    resource_class: small
     steps:
       - checkout
       - setup_remote_docker
@@ -123,7 +127,6 @@ jobs:
             ls
             docker run -e CI=true eganvawi/centos:latest
           
-
   
           
 
@@ -144,7 +147,3 @@ workflows:
       - workspace-postgres
           
       - workspace-mysql
-          
-      
-          
-      
